@@ -1,0 +1,5 @@
+edu\rit\se\datacollector\service\DataCollectorResource.class
+edu\rit\se\datacollector\model\StepTimerList.class
+edu\rit\se\datacollector\model\StepTimer.class
+edu\rit\se\datacollector\model\Phone.class
+edu\rit\se\datacollector\model\DataCollectorDao.class
