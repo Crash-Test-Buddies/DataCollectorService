@@ -17,8 +17,8 @@ public class DataCollectorDao {
 	 * @throws SQLException
 	 */
 	public void addTimings(Connection conn, List<StepTimer> timings, int phoneId) throws SQLException{
-		String sql = "Insert into StepTimer (Step_name, Start_time, End_time, Latitude, Longitude, Phone_id)"
-				+ " values(?, ?, ?, ?, ?, ?)";
+		String sql = "Insert into StepTimer (Step_name, Start_time, End_time, Latitude, Longitude, Phone_id, Start_seconds, End_seconds)"
+				+ " values(?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement statement = null;
 		try {
 			statement = conn.prepareStatement(sql);
@@ -30,6 +30,8 @@ public class DataCollectorDao {
 				statement.setDouble(4, timing.getLatitude());
 				statement.setDouble(5,  timing.getLongitude());
 				statement.setInt(6, phoneId);
+				statement.setLong(7,  timing.getStartSeconds());
+				statement.setLong(8, timing.getEndSeconds());
 				// Add the insert record to a batch
 				statement.addBatch();
 			}

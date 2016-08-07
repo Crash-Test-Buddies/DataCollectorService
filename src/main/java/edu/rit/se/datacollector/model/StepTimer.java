@@ -10,6 +10,8 @@ public class StepTimer {
 	private Timestamp endTime;
 	private double latitude;
 	private double longitude;
+	private long startSeconds;
+	private long endSeconds;
 	
 	public String getStepName() {
 		return stepName;
@@ -20,15 +22,28 @@ public class StepTimer {
 	public Timestamp getStartTime() {
 		return startTime;
 	}
+	
+	public long getStartSeconds() {
+		return startSeconds;
+	}
+	
 	public void setStartTime(String startTime) {
 		long milliseconds = Long.parseLong(startTime);
+		// Convert milliseconds to seconds
+		this.startSeconds = milliseconds * 1000;
 		this.startTime = new Timestamp(milliseconds);
 	}
 	public Timestamp getEndTime() {
 		return endTime;
 	}
+	
+	public long getEndSeconds() {
+		return endSeconds;
+	}
 	public void setEndTime(String endTime) {
 		long milliseconds = Long.parseLong(endTime);
+		// Convert to seconds
+		this.endSeconds = milliseconds * 1000;
 		this.endTime = new Timestamp(milliseconds);
 	}
 	public double getLatitude() {
